@@ -61,9 +61,9 @@ Wir haben jetzt ein Formular das nach auswerten und erfolgreiche Validierung die
 .[note]
 Im Zusammenhang mit den Presenter Lebenszyklus ist das auswerten in den gleichen Niveau wie das auswerten von Signalen das heißt nach der `action*` un nach der  `render*` Methode.
 
-Vykreslený formulář splňuje základní pravidlo přístupnosti - všechny popisky jsou zapsány jako `<label>` a provázané s příslušným formulářovým prvkem. Při kliknutí na popisku se kurzor automaticky objeví ve formulářovém políčku.
+Das gerendern des Formular erfüllt grundlegenden Richtlinien der Barrierefreiheit im Web. Alle Beschreibungen werden als `<label>` Elemente erzeugt und sind mit ihren Eingabeelemente verbunden. 
 
-Data v proměnné `$values` neobsahují hodnoty formulářových tlačítek, takže je lze obvykle rovnou použít pro další zpracování (například vložení do databáze). Zároveň si můžete všimnout, že z textových políček jsou automaticky odstraněny levo- i pravostranné mezery. Schválně si zkuste do políčka napsat své jméno a za něj několik mezer - po odeslání budou mezery ořezané.
+In der Variable `$values` gespeicherte Daten haben nicht die Werte von Formularschaltflächen, so das sie bereit für weitere Operationen sind (wie das Speichen in die Datenbank). Leerzeichen am Anfang und Ende aus Datenfeld werde auch automatich entfernt. Probieren Sie es aus: tragen Sie Ihren Namen in das Feld fügen Sie dan ein par Leerzeichen - nach den verarbeitung werden die Leerzeichen automatisch entfernt.
 
 Zmínili jsme se o validaci, ale formulář zatím žádná validační pravidla nemá. Pojďme to napravit. Jméno bude povinné, proto je označíme metodou `setRequired()`, jejíž volitelný argument je text chybové hlášky, která se zobrazí, pokud uživatel jméno nevyplní:
 
