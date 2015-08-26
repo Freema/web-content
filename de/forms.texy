@@ -1,4 +1,4 @@
-Formuláře
+Formulare
 **********
 
 /--div .[perex]
@@ -30,9 +30,9 @@ class HomepagePresenter extends UI\Presenter
 	protected function createComponentRegistrationForm()
 	{
 		$form = new UI\Form;
-		$form->addText('name', 'Jméno:');
-		$form->addPassword('password', 'Heslo:');
-		$form->addSubmit('login', 'Registrovat');
+		$form->addText('name', 'Benutzernamen:');
+		$form->addPassword('password', 'Password:');
+		$form->addSubmit('login', 'Registrieren');
 		$form->onSuccess[] = array($this, 'registrationFormSucceeded');
 		return $form;
 	}
@@ -46,13 +46,13 @@ class HomepagePresenter extends UI\Presenter
 	}
 }
 \--
-Das Rendern wird mit dem macro control gemacht:
+Das Rendern wird mit dem macro control gestartet:
 
 /--html
 {control registrationForm}
 \--
 
-in Web Browsers wird das alles so aussehen:
+In Web Browsers wird das alles so aussehen:
 
 [* form-cs.png *]
 
@@ -65,11 +65,11 @@ Das gerendern des Formular erfüllt grundlegenden Richtlinien der Barrierefreihe
 
 In der Variable `$values` gespeicherte Daten haben nicht die Werte von Formularschaltflächen, so das sie bereit für weitere Operationen sind (wie das Speichen in die Datenbank). Leerzeichen am Anfang und Ende aus Datenfeld werde auch automatich entfernt. Probieren Sie es aus: tragen Sie Ihren Namen in das Feld fügen Sie dan ein par Leerzeichen - nach den verarbeitung werden die Leerzeichen automatisch entfernt.
 
-Zmínili jsme se o validaci, ale formulář zatím žádná validační pravidla nemá. Pojďme to napravit. Jméno bude povinné, proto je označíme metodou `setRequired()`, jejíž volitelný argument je text chybové hlášky, která se zobrazí, pokud uživatel jméno nevyplní:
+Wir haben erwähnt etwas über die Validierung, aber unser Formular hat keine. So jetzt beheben wir das problem. Für die Kontrolle ob der Benutzernamen nicht leer ist rufen wir `setRequired()` methode für das Formularelement. Sie können eine Fehlermeldung als optionales Argument übergeben das angezeigt wird.
 
 /--php
-$form->addText('name', 'Jméno:')
-	->setRequired('Zadejte prosím jméno');
+$form->addText('name', 'Name:')
+	->setRequired('Bitte fügen Sie Ihren Namen ein.');
 \--
 
 Zkuste si odeslat formulář bez vyplněného jména a uvidíte, že se zobrazí chybová hláška a server vám jej bude nabízet do té doby, dokud jej nevyplníte v souladu s validačními pravidly. Formulář se automaticky validuje na straně klienta i na straně serveru.
